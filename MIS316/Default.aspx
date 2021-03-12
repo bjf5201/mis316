@@ -12,6 +12,9 @@
         <asp:HyperLink ID="lnkPrep1B" runat="server" NavigateUrl="~/MIS316/Prep1Bfanninb.aspx">Prep 1B</asp:HyperLink>
     </p>
     <p>
+        <asp:HyperLink ID="lnkPrep2A" runat="server" NavigateUrl="~/MIS316/Prep2AFanninb.aspx">Prep 2A</asp:HyperLink>
+    </p>
+    <p>
         &nbsp;</p>
     <p style="font-weight: 700">
         Mini Projects</p>
