@@ -26,7 +26,40 @@ public partial class MIS316_Prep2AFanninb : System.Web.UI.Page
 
         // hide so that a selection must be made again
         btnRemoveSelected.Visible = false;
+
+        // when a color is removed, update the lblMessage output
+        // start with counter variables
+        int intPrimaryCount = 0;
+        int intSecondaryCount = 0;
+        int intOtherCount = 0;
+        // Iterate through the list items to count each color
+        foreach (ListItem liColor in rblColors.Items)
+        {
+            // red, blue, and yellow = primary colors
+            if (liColor.Text.ToLower() == "red" || liColor.Text.ToLower() == "blue" || liColor.Text.ToLower() == "yellow")
+            {
+                // this is a primary count, increase the counter by 1
+                intPrimaryCount++;
+            }
+            // green, orange, and purple = secondary colors
+            else if (liColor.Text.ToLower() == "green" || liColor.Text.ToLower() == "orange" || liColor.Text.ToLower() == "purple")
+            {
+                // this is the secondary count, increase the counter by 1
+                intSecondaryCount++;
+            }
+            // everything else = other color, increase other color counter by 1
+            else
+            {
+                intOtherCount++;
+            }
+        }
+        // build updated output message and show the user
+        lblMessage.Text = "The current list has:<br />";
+        lblMessage.Text += intPrimaryCount.ToString() + " primary colors<br />";
+        lblMessage.Text += intSecondaryCount.ToString() + " secondary colors<br />";
+        lblMessage.Text += intOtherCount.ToString() + " other colors";
     }
+
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
@@ -92,6 +125,4 @@ public partial class MIS316_Prep2AFanninb : System.Web.UI.Page
         lblMessage.Text += intSecondaryCount.ToString() + " secondary colors<br />";
         lblMessage.Text += intOtherCount.ToString() + " other colors";
     }
-
-    
 }
